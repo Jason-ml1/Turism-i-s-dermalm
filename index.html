@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nordic Luxe — Märkeskläder</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="brand-mark">NL</span>
+        <span class="brand-name">Nordic Luxe</span>
+      </div>
+      <nav class="nav">
+        <a href="#" class="nav-link">Hem</a>
+        <a href="#produkter" class="nav-link">Produkter</a>
+        <a href="#support" class="nav-link">Support</a>
+      </nav>
+      <button id="cartButton" class="cart-btn" aria-label="Varukorg">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+          <path d="M7 4h-2l-1 2h2l3.6 7.59-1.35 2.45A2 2 0 0 0 10 19h9v-2h-8.42a.25.25 0 0 1-.22-.37L11 14h6.55a2 2 0 0 0 1.8-1.11L22 6H6.42" fill="currentColor" />
+        </svg>
+        <span id="cartCount" class="cart-count">0</span>
+      </button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-inner">
+      <h1>Lyxiga märkeskläder, utvalda för Norden</h1>
+      <p>Shoppa Moncler, Under Armour, Burberry och fler favoriter. Snabb leverans & fria returer.</p>
+      <a href="#produkter" class="btn btn-primary">Handla nu</a>
+    </div>
+  </section>
+
+  <main class="container" id="produkter">
+    <section class="controls">
+      <div class="control">
+        <label for="search">Sök</label>
+        <input id="search" type="search" placeholder="Sök efter produkt, t.ex. jacka" />
+      </div>
+      <div class="control">
+        <label for="brand">Märke</label>
+        <select id="brand">
+          <option value="">Alla</option>
+          <option>Moncler</option>
+          <option>Under Armour</option>
+          <option>Burberry</option>
+        </select>
+      </div>
+      <div class="control">
+        <label for="category">Kategori</label>
+        <select id="category">
+          <option value="">Alla</option>
+          <option>Jackor</option>
+          <option>Tröjor</option>
+          <option>Skor</option>
+          <option>Accessoarer</option>
+        </select>
+      </div>
+      <div class="control">
+        <label for="price">Maxpris (SEK)</label>
+        <input id="price" type="range" min="300" max="15000" step="100" value="15000" />
+        <span id="priceValue">15 000</span>
+      </div>
+      <div class="control">
+        <label for="sort">Sortera</label>
+        <select id="sort">
+          <option value="featured">Utvalda</option>
+          <option value="price-asc">Pris: lågt till högt</option>
+          <option value="price-desc">Pris: högt till lågt</option>
+          <option value="name-asc">Namn: A–Ö</option>
+          <option value="name-desc">Namn: Ö–A</option>
+        </select>
+      </div>
+    </section>
+
+    <section id="grid" class="product-grid" aria-live="polite"></section>
+  </main>
+
+  <footer class="site-footer" id="support">
+    <div class="container footer-grid">
+      <div>
+        <h3>Nordic Luxe</h3>
+        <p>Demo-butik för utbildningssyfte. Inga varumärken ägs av oss.</p>
+      </div>
+      <div>
+        <h4>Hjälp</h4>
+        <ul>
+          <li><a href="#">Kundservice</a></li>
+          <li><a href="#">Frakt & returer</a></li>
+          <li><a href="#">Köpvillkor</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Nyhetsbrev</h4>
+        <form id="newsletterForm">
+          <input type="email" placeholder="din@email.se" required/>
+          <button class="btn btn-outline">Prenumerera</button>
+        </form>
+        <small>Genom att prenumerera godkänner du vår integritetspolicy.</small>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <small>© <span id="year"></span> Nordic Luxe</small>
+    </div>
+  </footer>
+
+  <!-- Varukorg -->
+  <div id="cartOverlay" class="overlay" aria-hidden="true"></div>
+  <aside id="cartDrawer" class="cart-drawer" aria-labelledby="cartTitle" aria-hidden="true" role="dialog">
+    <div class="cart-header">
+      <h2 id="cartTitle">Din varukorg</h2>
+      <button id="closeCart" class="icon-btn" aria-label="Stäng varukorg">×</button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-summary">
+      <div class="row">
+        <span>Delsumma</span><strong id="subtotal">0 kr</strong>
+      </div>
+      <div class="row">
+        <span>Frakt</span><strong>Gratis</strong>
+      </div>
+      <button id="checkout" class="btn btn-primary btn-full">Till kassan</button>
+    </div>
+  </aside>
+
+  <script src="app.js"></script>
+</body>
+</html>
